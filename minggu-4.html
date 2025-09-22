@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minggu 4: Service Desk VS Help Desk VS Incident Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Dashboard Perkuliahan</a>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <a href="index.html#rangkuman-materi" class="btn btn-outline-primary mb-4"> <i class="bi bi-arrow-left"></i> Kembali ke Daftar Rangkuman </a>
+
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold">Rangkuman Minggu 4</h1>
+        <h2 class="text-body-secondary">Perbedaan antara Service Desk, Help Desk, dan Incident Management</h2>
+        <p class="lead text-muted">Disusun oleh: I Putu Febryan Khrisyantara (5026231116)</p>
+      </header>
+      <hr class="mb-3" />
+
+      <article>
+        <p>
+          Pada minggu ke-4, saya mempelajari lebih lanjut terkait konsep dan fungsi Service Desk sebagai pusat layanan utama dalam kerangka IT Service Management (ITSM). Pembahasan diawali dengan definisi fundamental Service Desk,
+          perbandingannya dengan Help Desk untuk menyoroti perbedaan lingkup dan tujuannya, serta pengenalan berbagai tipe struktur Service Desk yang dapat diterapkan dalam sebuah organisasi. Selanjutnya, dibahas lebih lanjut terkait alur
+          proses Manajemen Insiden (<i>Incident Management</i>) yang merupakan salah satu tugas inti Service Desk, lengkap dengan <i>Key Performance Indicators</i> (KPI) yang digunakan untuk mengukur keberhasilannya. Sebagai studi kasus
+          praktis, pembahasan minggu ini ditutup dengan analisis kesenjangan (<i>gap analysis</i>) pada sebuah kumpulan data tiket untuk mengidentifikasi kekurangan informasi dibandingkan dengan standar pencatatan insiden menurut kerangka
+          kerja ITIL V3.
+        </p>
+
+        <section id="definisi-service-desk" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-headset text-primary"></i> Apa itu Service Desk?</h3>
+          <div class="bg-light p-4 rounded">
+            <p class="mb-0">
+              Service Desk adalah pusat komunikasi utama dan satu-satunya titik kontak (Single Point of Contact - SPOC) antara penyedia layanan TI (departemen IT) dengan para penggunanya (karyawan atau pelanggan). Menurut kerangka kerja
+              ITIL, Service Desk tidak hanya menangani gangguan, tetapi juga mengelola permintaan layanan (service requests), menjawab pertanyaan, dan menjadi jembatan komunikasi untuk semua kebutuhan terkait TI. Tujuannya adalah untuk
+              memulihkan operasional layanan normal secepat mungkin dan meminimalkan dampak negatif pada bisnis.
+            </p>
+          </div>
+        </section>
+
+        <section id="perbedaan-service-desk" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-distribute-vertical text-primary"></i> Perbedaan Service Desk dan Help Desk</h3>
+          <p>Perbedaan fundamental antara Service Desk dan Help Desk, terutama dalam lingkup dan pendekatan mereka.</p>
+
+          <div class="table-responsive mt-4">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="table-light text-center">
+                <tr>
+                  <th scope="col" style="width: 25%">Fitur</th>
+                  <th scope="col">Help Desk</th>
+                  <th scope="col">Service Desk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Fokus Utama</strong></td>
+                  <td>Taktis & Reaktif: Fokus pada penyelesaian masalah teknis yang ada (break-fix).</td>
+                  <td>Strategis & Proaktif: Fokus pada penyampaian layanan TI secara keseluruhan sesuai kebutuhan bisnis.</td>
+                </tr>
+                <tr>
+                  <td><strong>Lingkup</strong></td>
+                  <td>Lebih sempit, biasanya hanya menangani insiden atau gangguan.</td>
+                  <td>Lebih luas, mencakup manajemen insiden, permintaan layanan, manajemen masalah, dan manajemen pengetahuan.</td>
+                </tr>
+                <tr>
+                  <td><strong>Integrasi</strong></td>
+                  <td>Seringkali berfungsi sebagai unit terpisah.</td>
+                  <td>Terintegrasi penuh dengan proses IT Service Management (ITSM) dan ITIL lainnya.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tujuan</strong></td>
+                  <td>Menyelesaikan masalah pengguna secepatnya.</td>
+                  <td>Meningkatkan produktivitas bisnis dengan menyediakan layanan TI yang efisien dan berkualitas.</td>
+                </tr>
+                <tr>
+                  <td><strong>Orientasi</strong></td>
+                  <td>Berorientasi pada TI (IT-centric).</td>
+                  <td>Berorientasi pada bisnis dan pengguna (Business-centric & User-centric).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="tipe-service-desk" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-diagram-3 text-primary"></i> Tipe-Tipe Service Desk</h3>
+          <p>Berdasarkan kebutuhan organisasi, Service Desk dapat memiliki beberapa struktur yang berbeda:</p>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Local Service Desk:</strong> Ditempatkan secara fisik berdekatan dengan komunitas pengguna yang dilayaninya. Keuntungannya adalah komunikasi yang lebih mudah dan pemahaman mendalam tentang budaya bisnis lokal, namun
+              biayanya lebih mahal.
+            </li>
+            <li class="list-group-item">
+              <strong>Centralized Service Desk:</strong> Menggabungkan semua staf pendukung di satu lokasi pusat untuk melayani seluruh organisasi. Ini sangat efisien dari segi biaya dan memungkinkan manajemen yang lebih terpusat.
+            </li>
+            <li class="list-group-item">
+              <strong>Virtual Service Desk:</strong> Meskipun staf pendukung tersebar di berbagai lokasi geografis, mereka berfungsi sebagai satu tim berkat teknologi (internet, aplikasi pendukung, dll.). Ini memberikan fleksibilitas tinggi
+              dan memungkinkan dukungan 24/7.
+            </li>
+            <li class="list-group-item">
+              <strong>Follow the Sun:</strong> Model ini menggunakan Service Desk yang berlokasi di zona waktu yang berbeda di seluruh dunia. Ketika jam kerja di satu wilayah berakhir, tugas dukungan diserahkan ke tim di zona waktu
+              berikutnya, sehingga menciptakan dukungan tanpa henti selama 24 jam.
+            </li>
+            <li class="list-group-item">
+              <strong>Hybrid Model:</strong> Merupakan kombinasi dari beberapa model di atas, misalnya memiliki satu Service Desk terpusat (Centralized) yang didukung oleh beberapa tim lokal (Local) untuk menangani masalah di tempat.
+            </li>
+          </ul>
+        </section>
+
+        <section id="proses-service-desk" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-card-checklist text-primary"></i> Proses Service Desk</h3>
+          <p>Service Desk adalah eksekutor utama dari banyak proses ITIL. Berikut adalah alur proses umum ketika pengguna menghubungi Service Desk, khususnya dalam konteks Manajemen Insiden:</p>
+          <ol class="list-group list-group-numbered mt-3">
+            <li class="list-group-item">
+              <strong>Identifikasi & Pencatatan (Logging):</strong> Pengguna melaporkan gangguan melalui telepon, email, atau portal. Agen Service Desk membuat "tiket" yang berisi semua detail: identitas pengguna, deskripsi masalah, dan
+              aset yang terdampak.
+            </li>
+            <li class="list-group-item">
+              <strong>Kategorisasi (Categorization):</strong> Tiket diklasifikasikan berdasarkan jenis masalahnya (misalnya, "Perangkat Keras", "Perangkat Lunak", "Jaringan"). Ini membantu dalam perutean dan analisis tren.
+            </li>
+            <li class="list-group-item">
+              <strong>Prioritas (Prioritization):</strong> Tiket diberi prioritas berdasarkan dampak (berapa banyak pengguna atau sistem yang terpengaruh) dan urgensi (seberapa cepat masalah ini perlu diselesaikan untuk bisnis).
+            </li>
+            <li class="list-group-item">
+              <strong>Diagnosis Awal & Resolusi (First-Line Support):</strong> Agen Service Desk mencoba menyelesaikan masalah secara langsung menggunakan basis pengetahuan (knowledge base) atau panduan yang ada. Tujuannya adalah First Call
+              Resolution (penyelesaian pada panggilan pertama).
+            </li>
+            <li class="list-group-item">
+              <strong>Eskalasi (Escalation):</strong> Jika masalah tidak dapat diselesaikan di tingkat pertama, tiket akan dieskalasi ke tim dukungan tingkat kedua atau ketiga yang memiliki keahlian lebih spesifik (misalnya, tim server, tim
+              database).
+            </li>
+            <li class="list-group-item">
+              <strong>Investigasi & Diagnosis Lanjutan:</strong> Tim spesialis melakukan analisis mendalam untuk menemukan solusi. Selama proses ini, Service Desk tetap menjadi titik kontak utama bagi pengguna.
+            </li>
+            <li class="list-group-item"><strong>Resolusi & Pemulihan (Resolution & Recovery):</strong> Solusi diterapkan dan layanan dipulihkan. Tim spesialis mendokumentasikan langkah-langkah yang diambil.</li>
+            <li class="list-group-item"><strong>Penutupan (Closure):</strong> Service Desk mengonfirmasi kepada pengguna bahwa masalah telah teratasi dan layanan telah kembali normal. Setelah konfirmasi, tiket secara resmi ditutup.</li>
+          </ol>
+        </section>
+
+        <section id="kpi-service-desk" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow text-primary"></i> KPI (Key Performance Indicators) Service Desk</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20%">Kategori KPI</th>
+                  <th style="width: 30%">Nama KPI (Key Performance Indicator)</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3"><strong>Efisiensi & Kecepatan</strong></td>
+                  <td>First Contact Resolution Rate</td>
+                  <td>Persentase insiden yang berhasil diselesaikan pada interaksi pertama tanpa perlu eskalasi.</td>
+                </tr>
+                <tr>
+                  <td>Average Time to Resolution (MTTR)</td>
+                  <td>Waktu rata-rata yang dibutuhkan dari saat tiket dibuat hingga insiden sepenuhnya diselesaikan.</td>
+                </tr>
+                <tr>
+                  <td>Incidents Resolved within SLA</td>
+                  <td>Persentase insiden yang diselesaikan dalam target waktu yang disepakati dalam Service Level Agreement (SLA).</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><strong>Kualitas & Kepuasan</strong></td>
+                  <td>Customer/User Satisfaction (CSAT)</td>
+                  <td>Tingkat kepuasan pengguna terhadap layanan yang diberikan, biasanya diukur melalui survei.</td>
+                </tr>
+                <tr>
+                  <td>First Level Support Resolution Rate</td>
+                  <td>Persentase insiden yang diselesaikan oleh tim tingkat pertama (Service Desk) tanpa eskalasi.</td>
+                </tr>
+                <tr>
+                  <td rowspan="3"><strong>Biaya & Beban Kerja</strong></td>
+                  <td>Cost per Ticket</td>
+                  <td>Total biaya operasional Service Desk dibagi dengan jumlah total tiket yang ditangani dalam periode tertentu.</td>
+                </tr>
+                <tr>
+                  <td>Agent Utilization</td>
+                  <td>Persentase waktu yang dihabiskan agen untuk benar-benar menangani tiket dibandingkan dengan total waktu kerja mereka.</td>
+                </tr>
+                <tr>
+                  <td>Ticket Backlog</td>
+                  <td>Jumlah tiket yang belum terselesaikan pada akhir periode pelaporan.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="insiden-vs-servicedesk">
+          <h3 class="fw-bold mb-4"><i class="bi bi-intersect text-primary"></i> Perbedaan Manajemen Insiden & Service Desk</h3>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="bg-light p-4 rounded h-100">
+                <h5 class="fw-bold">Service Desk (Fungsi)</h5>
+                <p class="mb-0">
+                  Service Desk adalah sebuah <strong>FUNGSI</strong> atau <strong>UNIT ORGANISASI</strong>. Ini adalah tim atau departemen yang terdiri dari orang-orang yang bertindak sebagai titik kontak utama untuk pengguna.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="bg-light p-4 rounded h-100">
+                <h5 class="fw-bold">Manajemen Insiden (Proses)</h5>
+                <p class="mb-0">
+                  Manajemen Insiden (Incident Management) adalah sebuah <strong>PROSES</strong>. Ini adalah serangkaian langkah dan prosedur yang terstruktur yang dirancang untuk mengelola siklus hidup semua insiden (gangguan layanan yang
+                  tidak direncanakan).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <h5 class="fw-bold">Hubungan antara Keduanya</h5>
+            <blockquote class="blockquote bg-light p-4 rounded">
+              <p>
+                Service Desk adalah pemilik dan pelaksana utama dari proses Manajemen Insiden. Artinya, ketika sebuah insiden terjadi, proses Manajemen Insiden-lah yang diikuti, dan fungsi Service Desk-lah yang menjalankannya, mulai dari
+                mencatat insiden, melakukan diagnosis awal, hingga menutup tiket setelah insiden teratasi.
+              </p>
+              <p class="mb-0">Jadi, Service Desk melakukan Manajemen Insiden, tetapi Manajemen Insiden sebagai sebuah proses juga melibatkan tim lain (tingkat kedua/ketiga) saat eskalasi diperlukan.</p>
+            </blockquote>
+          </div>
+        </section>
+
+        <hr class="my-5" />
+        <section id="checklist-insiden">
+          <h3 class="fw-bold mb-4"><i class="bi bi-check2-square text-primary"></i> Checklist Entitas untuk Setiap Sub Proses pada Incident Management</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20%">Sub Proses</th>
+                  <th style="width: 25%">Konten Checklist</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="17"><strong>Incident Record</strong></td>
+                  <td>Unique ID</td>
+                  <td>Nomor identifikasi unik yang diberikan secara otomatis untuk setiap insiden, berfungsi sebagai referensi utama dalam pelacakan dan pencarian kembali insiden.</td>
+                </tr>
+                <tr>
+                  <td>Date and time of recording</td>
+                  <td>Waktu dan tanggal resmi ketika insiden pertama kali dicatat dalam sistem, yang penting untuk analisis SLA dan kecepatan respons.</td>
+                </tr>
+                <tr>
+                  <td>Method of notification</td>
+                  <td>Cara insiden dilaporkan oleh pengguna (misalnya telepon, email, chat, portal web), yang membantu Service Desk memahami jalur komunikasi yang paling sering digunakan.</td>
+                </tr>
+                <tr>
+                  <td>Service Desk agent</td>
+                  <td>Nama atau identitas petugas Service Desk yang menerima laporan insiden, berguna untuk akuntabilitas dan tindak lanjut jika dibutuhkan.</td>
+                </tr>
+                <tr>
+                  <td>Caller / user data</td>
+                  <td>Informasi detail tentang pengguna yang melaporkan insiden, seperti nama, jabatan, departemen, dan kontak, agar resolusi dapat lebih terarah.</td>
+                </tr>
+                <tr>
+                  <td>Callback method</td>
+                  <td>Metode yang disepakati untuk menghubungi kembali pengguna (telepon, email, atau aplikasi internal) demi memberikan pembaruan status insiden.</td>
+                </tr>
+                <tr>
+                  <td>Description of symptoms</td>
+                  <td>Penjelasan rinci mengenai gejala atau masalah yang dialami pengguna sehingga teknisi dapat memahami situasi dengan cepat.</td>
+                </tr>
+                <tr>
+                  <td>Affected users, locations and/or business areas</td>
+                  <td>Identifikasi siapa saja, lokasi mana, atau area bisnis apa yang terdampak insiden untuk mengukur skala dampaknya.</td>
+                </tr>
+                <tr>
+                  <td>Affected service(s)</td>
+                  <td>Layanan TI spesifik yang terpengaruh oleh insiden, misalnya sistem email, aplikasi keuangan, atau jaringan internet kantor.</td>
+                </tr>
+                <tr>
+                  <td>Incident priority</td>
+                  <td>Penentuan tingkat prioritas insiden berdasarkan kombinasi urgensi dan dampaknya, yang akan menentukan urutan penanganan.</td>
+                </tr>
+                <tr>
+                  <td>Relationships to CIs</td>
+                  <td>Hubungan insiden dengan Configuration Items (CI) dalam CMDB, untuk membantu menemukan akar masalah terkait infrastruktur atau aplikasi.</td>
+                </tr>
+                <tr>
+                  <td>Incident category</td>
+                  <td>Klasifikasi insiden ke dalam kategori tertentu (misal: hardware, software, jaringan, aplikasi) untuk analisis statistik dan tren.</td>
+                </tr>
+                <tr>
+                  <td>Links to related Incident Records</td>
+                  <td>Tautan ke insiden lain yang serupa atau berhubungan, membantu dalam identifikasi insiden berulang.</td>
+                </tr>
+                <tr>
+                  <td>Links to related Problem Records</td>
+                  <td>Kaitan antara insiden dan problem record, agar tim problem management dapat menemukan akar penyebab permanen.</td>
+                </tr>
+                <tr>
+                  <td>Incident status change history</td>
+                  <td>Riwayat perubahan status insiden (baru, dalam progres, ditangguhkan, terselesaikan) untuk transparansi proses.</td>
+                </tr>
+                <tr>
+                  <td>Activity log / resolution history</td>
+                  <td>Catatan kronologis mengenai semua tindakan yang dilakukan oleh agen support, termasuk analisis dan solusi yang dicoba.</td>
+                </tr>
+                <tr>
+                  <td>Closure data</td>
+                  <td>Informasi detail saat insiden ditutup, termasuk konfirmasi penyelesaian dari pengguna serta dokumentasi solusi yang diterapkan.</td>
+                </tr>
+                <tr>
+                  <td rowspan="7"><strong>Incident Priority</strong></td>
+                  <td>Incident Prioritization Guideline</td>
+                  <td>Panduan tertulis yang digunakan oleh Service Desk untuk menetapkan prioritas insiden secara konsisten.</td>
+                </tr>
+                <tr>
+                  <td>Incident Urgency (Categories of Urgency)</td>
+                  <td>Tingkatan urgensi insiden berdasarkan waktu yang dibutuhkan untuk penyelesaian, misalnya tinggi, sedang, atau rendah.</td>
+                </tr>
+                <tr>
+                  <td>Incident Impact (Categories of Impact)</td>
+                  <td>Skala dampak insiden terhadap organisasi, misalnya hanya satu pengguna, satu departemen, atau seluruh perusahaan.</td>
+                </tr>
+                <tr>
+                  <td>Incident Priority Classes</td>
+                  <td>Kelas prioritas insiden yang sudah ditetapkan (misalnya P1 – kritis, P2 – tinggi, P3 – sedang, P4 – rendah).</td>
+                </tr>
+                <tr>
+                  <td>Incident Priority Matrix</td>
+                  <td>Matriks yang memetakan urgensi dan dampak untuk menentukan prioritas insiden secara objektif.</td>
+                </tr>
+                <tr>
+                  <td>Circumstances warrant Major Incident</td>
+                  <td>Kondisi khusus yang menjadikan insiden dikategorikan sebagai Major Incident, misalnya gangguan layanan inti yang berdampak luas.</td>
+                </tr>
+                <tr>
+                  <td>Indicators</td>
+                  <td>Sinyal atau indikator awal, seperti lonjakan tiket atau alarm sistem, yang menunjukkan adanya insiden serius.</td>
+                </tr>
+                <tr>
+                  <td rowspan="5"><strong>Initial Analysis</strong></td>
+                  <td>Incident Symptoms</td>
+                  <td>Gejala teknis yang muncul dan dirasakan pengguna akibat insiden, misalnya aplikasi lambat atau error muncul terus-menerus.</td>
+                </tr>
+                <tr>
+                  <td>Logs</td>
+                  <td>Data teknis dari log sistem atau aplikasi yang dapat membantu analisis penyebab insiden.</td>
+                </tr>
+                <tr>
+                  <td>Affected Configuration Items</td>
+                  <td>CI spesifik yang terdampak insiden, misalnya server database, router, atau aplikasi tertentu.</td>
+                </tr>
+                <tr>
+                  <td>Error Messages</td>
+                  <td>Pesan kesalahan yang muncul pada perangkat atau aplikasi, yang berguna untuk diagnosis.</td>
+                </tr>
+                <tr>
+                  <td>User Input</td>
+                  <td>Informasi tambahan yang diberikan oleh pengguna untuk membantu pemahaman masalah.</td>
+                </tr>
+                <tr>
+                  <td rowspan="4"><strong>Incident Escalation</strong></td>
+                  <td>Escalation Type</td>
+                  <td>Jenis eskalasi insiden, bisa berupa fungsional (ke tim spesialis) atau hierarkis (ke manajer).</td>
+                </tr>
+                <tr>
+                  <td>Support Group</td>
+                  <td>Tim teknis yang bertanggung jawab menyelesaikan insiden setelah diteruskan dari Service Desk.</td>
+                </tr>
+                <tr>
+                  <td>Contact Person</td>
+                  <td>Individu yang menjadi penanggung jawab utama komunikasi selama proses eskalasi.</td>
+                </tr>
+                <tr>
+                  <td>Escalation Time</td>
+                  <td>Waktu kapan insiden di eskalasi ke level dukungan atau manajemen yang lebih tinggi.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <hr class="my-5" />
+        <section id="lab-01" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-people-fill text-primary"></i> Lab 01-Group Work</h3>
+          <p>
+            Pada akhir sesi pertemuan minggu ke-4, saya juga mencoba untuk melakukan transformasi sebuah dataset yang berisi laporan permintaan bantuan kepada tim IT Support (dataset yang digunakan dapat dilihat melalui link berikut
+            https://www.kaggle.com/datasets/parthpatil256/it-support-ticket-data), transformasi yang dilakukan berupa pengubahan menjadi bentuk tabel data yang sesuai dengan checklist entitas Incident Management menurut ITIL V3.
+          </p>
+          <p>Hasil analisis yang saya peroleh dapat diakses melalui file berikut ini.</p>
+
+          <div class="text-center mt-4">
+            <a href="tugas/Lab-01.xlsx" class="btn btn-primary" target="_blank"> <i class="bi bi-file-earmark-spreadsheet-fill me-1"></i> Buka Hasil Analisis </a>
+          </div>
+        </section>
+
+        <section id="analisis-gap">
+          <h3 class="fw-bold mb-3"><i class="bi bi-search text-primary"></i> Analisis Kesenjangan (Gap) Sebelum dan Sesudah Transformasi</h3>
+          <p>
+            Setelah mencoba melakukan transformasi pada 20 baris dari dataset tersebut, kemudian saya melakukan analisis perbedaan sebelum dan sesudah proses transformasi. Hasil analisis yang saya dan tim peroleh adalah sebagai berikut.
+          </p>
+
+          <ol class="list-group list-group-numbered mt-4">
+            <li class="list-group-item">
+              <strong>Konteks Waktu dan Pengguna</strong>
+              <p class="mt-2 mb-0">
+                Kesenjangan paling mendasar adalah tidak adanya konteks temporal dan identitas. Tanpa Date and time of recording, Method of notification, dan Caller / user data, mustahil untuk melacak metrik krusial seperti waktu respons
+                (SLA), menganalisis tren insiden berdasarkan waktu, atau memahami siapa yang paling terdampak. Dataset ini kehilangan dimensi "kapan" dan "siapa", sehingga setiap tiket terisolasi tanpa riwayat atau identitas yang jelas. Hal
+                ini menghambat analisis performa layanan dan manajemen hubungan pelanggan.
+              </p>
+            </li>
+            <li class="list-group-item">
+              <strong>Detail Operasional dan Relasional</strong>
+              <p class="mt-2 mb-0">
+                Secara operasional, dataset ini kurang memiliki kedalaman. Ketiadaan Activity log, Incident status change history, dan Closure data berarti seluruh siklus hidup insiden, mulai dari pencatatan, eskalasi, hingga penyelesaian
+                tidak terekam. Selain itu, tidak adanya hubungan ke Configuration Items (CIs), insiden lain, atau Problem Records menjadikan setiap tiket sebagai entitas yang berdiri sendiri. Akibatnya, mustahil untuk melakukan analisis
+                akar masalah (root cause analysis), mengidentifikasi masalah berulang, atau memahami dampak insiden terhadap infrastruktur IT secara keseluruhan.
+              </p>
+            </li>
+            <li class="list-group-item">
+              <strong>Kerangka Kerja Strategis</strong>
+              <p class="mt-2 mb-0">
+                Kesenjangan terbesar terletak pada tidak adanya kerangka kerja strategis yang memandu penanganan insiden. Kolom-kolom seperti Priority Matrix, SLA/Escalation Time, dan Major Incident Definition bukanlah data yang diekstrak
+                dari tiket, melainkan aturan bisnis yang seharusnya sudah ada. Tanpa kerangka ini, penentuan Incident Priority menjadi subjektif dan tidak konsisten. Sehingga, tidak ada panduan yang jelas tentang insiden mana yang harus
+                didahulukan, kapan harus melakukan eskalasi, atau bagaimana menangani insiden besar yang berdampak luas, sehingga proses penanganan menjadi reaktif, bukan proaktif dan terstruktur.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <hr class="my-5" />
+        <section id="refleksi">
+          <h3 class="fw-bold mb-4">💡 Refleksi Pembelajaran</h3>
+          <blockquote class="blockquote bg-light p-4 rounded">
+            <p class="mb-0">
+              Pelajaran utama dari minggu ini adalah bagaimana Service Desk bertransformasi dari sekadar "pemadam kebakaran" teknis menjadi pusat layanan yang strategis dan berorientasi pada nilai bisnis. Saya belajar bahwa perbedaannya
+              dengan Help Desk bukan hanya soal nama, tetapi tentang lingkup, proses, dan tujuan. Melalui analisis proses Manajemen Insiden dan checklist-nya, saya menyadari betapa pentingnya struktur dalam mengubah data mentah menjadi
+              informasi yang bermakna. Latihan transformasi dataset benar-benar membuka mata saya terhadap kesenjangan antara data yang tidak terstruktur dan sistem yang didorong oleh kerangka kerja ITIL, menegaskan bahwa tanpa proses yang
+              jelas dan metrik yang terukur, sebuah layanan TI tidak akan bisa memberikan nilai yang sesungguhnya bagi organisasi.
+            </p>
+          </blockquote>
+        </section>
+      </article>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+      <div class="container">
+        <p class="mb-0 text-muted">&copy; 2025 | Dibuat oleh I Putu Febryan Khrisyantara</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

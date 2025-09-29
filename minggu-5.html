@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minggu 5: Problem Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Dashboard Perkuliahan</a>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <a href="index.html#rangkuman-materi" class="btn btn-outline-primary mb-4"> <i class="bi bi-arrow-left"></i> Kembali ke Daftar Rangkuman </a>
+
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold">Rangkuman Minggu 5</h1>
+        <h2 class="text-body-secondary">Problem Management dalam Konteks ITSM</h2>
+        <p class="lead text-muted">Disusun oleh: I Putu Febryan Khrisyantara (5026231116)</p>
+      </header>
+      <hr class="mb-3" />
+
+      <article>
+        <p>
+          Manajemen Masalah (<i>Problem Management</i>) adalah sebuah disiplin dalam manajemen layanan TI yang berfokus pada pengelolaan siklus hidup semua masalah. Pembahasan kali ini akan diawali dengan definisi dan tujuan utama dari
+          <i>Problem Management</i>, yaitu untuk mencegah terjadinya insiden serta mencegah insiden yang sudah terjadi agar tidak terulang kembali dengan mengidentifikasi akar penyebabnya. Selanjutnya akan diuraikan dua sub-proses kuncinya,
+          yakni Manajemen Masalah Proaktif dan Reaktif, serta menjabarkan Indikator Kinerja Utama (KPI) untuk mengukur efektivitasnya. Lebih lanjut, kita akan membahas komponen-komponen esensial seperti <i>Known Error Database</i> (KEDB)
+          dan penerapan solusi sementara (<i>workaround</i>). Aspek teoritis tersebut kemudian didemonstrasikan melalui aplikasi praktis berupa analisis data untuk mengidentifikasi kandidat masalah dari insiden yang berulang, yang berpuncak
+          pada pelaksanaan Analisis Akar Penyebab (<i>Root Cause Analysis</i>) dari <i>study case</i> yang ada dengan menggunakan diagram Ishikawa (<i>fishbone</i>).
+        </p>
+
+        <section id="definisi-problem-management" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-search-heart text-primary"></i> Apa itu Problem Management?</h3>
+          <div class="bg-light p-4 rounded">
+            <p>
+              Problem Management adalah proses yang bertanggung jawab untuk mengelola siklus hidup semua "masalah" (problem). Tujuan utamanya adalah untuk mencegah insiden terjadi, dan jika insiden sudah terjadi, tujuannya adalah untuk
+              mencegah insiden tersebut terulang kembali. Hal ini dilakukan dengan mengidentifikasi akar penyebab insiden dan kemudian memulai tindakan untuk memperbaikinya.
+            </p>
+            <p class="mb-0">
+              Secara sederhana, jika Incident Management fokus pada pemulihan layanan secepat mungkin, Problem Management fokus pada pencarian dan penyelesaian penyebab utama di balik insiden tersebut untuk solusi jangka panjang.
+            </p>
+          </div>
+        </section>
+
+        <section id="sub-proses" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-diagram-2 text-primary"></i> Apa saja sub-prosesnya?</h3>
+          <p>Terdapat dua sub-proses utama dalam Problem Management:</p>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">1. Proactive Problem Management</h5>
+                  <p class="card-text">(Manajemen Masalah Proaktif)</p>
+                  <ul>
+                    <li>Fokus pada identifikasi dan penyelesaian masalah serta known error (kesalahan yang sudah diketahui) sebelum insiden dapat terjadi.</li>
+                    <li>Ini melibatkan analisis tren insiden yang pernah terjadi dan deteksi potensi risiko di masa depan untuk dicegah.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">2. Reactive Problem Management</h5>
+                  <p class="card-text">(Manajemen Masalah Reaktif)</p>
+                  <ul>
+                    <li>Proses ini berjalan sebagai respons terhadap satu atau lebih insiden yang telah terjadi.</li>
+                    <li>Tujuannya adalah untuk menemukan dan mengatasi akar penyebab dari insiden yang sudah ada untuk mencegahnya terulang.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="kpi-problem-management" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-graph-up-arrow text-primary"></i> Apa saja KPI-nya?</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="table-light text-center">
+                <tr>
+                  <th style="width: 35%">Nama KPI</th>
+                  <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>% Pengurangan Insiden Berulang</strong></td>
+                  <td>Persentase penurunan jumlah insiden yang disebabkan oleh masalah yang sama setelah akar penyebabnya diidentifikasi dan diatasi.</td>
+                </tr>
+                <tr>
+                  <td><strong>Jumlah Known Errors</strong></td>
+                  <td>Jumlah total known error yang berhasil diidentifikasi dan dicatat dalam Known Error Database (KEDB).</td>
+                </tr>
+                <tr>
+                  <td><strong>Waktu Rata-rata Resolusi Masalah</strong></td>
+                  <td>Waktu rata-rata yang dibutuhkan dari saat sebuah masalah dicatat hingga berhasil diselesaikan (akar penyebab diatasi).</td>
+                </tr>
+                <tr>
+                  <td><strong>Jumlah Masalah yang Terbuka</strong></td>
+                  <td>Jumlah masalah yang sedang aktif diinvestigasi dan belum ditemukan solusinya.</td>
+                </tr>
+                <tr>
+                  <td><strong>% Masalah dengan Workaround</strong></td>
+                  <td>Persentase masalah yang telah memiliki solusi sementara (workaround) untuk mengurangi dampak insiden selagi menunggu solusi permanen.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="kedb" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-database-check text-primary"></i> Apa itu Known Error Database (KEDB)?</h3>
+          <p>
+            Known Error Database (KEDB) adalah sebuah basis data atau repositori yang berisi catatan semua kesalahan yang telah diketahui (known error). Sebuah known error adalah masalah yang telah berhasil didiagnosis dan akar penyebabnya
+            telah ditemukan, serta solusi sementara (workaround)-nya telah diidentifikasi.
+          </p>
+          <p>KEDB sangat penting bagi tim Service Desk atau Incident Management karena memungkinkan mereka untuk dengan cepat menemukan solusi sementara jika insiden yang sama terjadi lagi, sehingga mempercepat proses pemulihan layanan.</p>
+
+          <div class="card mt-4">
+            <div class="card-header fw-bold">Contoh Catatan dalam KEDB</div>
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li><strong>ID Known Error:</strong> KE00123</li>
+                <li><strong>Judul:</strong> Gagal Mencetak dari Aplikasi X setelah Pembaruan OS</li>
+                <li><strong>Deskripsi Insiden:</strong> Pengguna melaporkan pesan error saat mencoba mencetak langsung dari Aplikasi X.</li>
+                <li><strong>Akar Penyebab:</strong> Ketidakcocokan antara driver printer versi saat ini dengan pembaruan sistem operasi terbaru.</li>
+                <li><strong>Workaround:</strong> Ekspor dokumen menjadi file PDF, kemudian cetak file PDF tersebut.</li>
+                <li><strong>Solusi Permanen:</strong> Sedang menunggu rilis driver printer terbaru dari vendor.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="workaround" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-lightbulb-fill text-primary"></i> Apa itu Workaround?</h3>
+          <p>
+            Workaround adalah sebuah solusi sementara atau metode alternatif untuk mengatasi dampak dari sebuah insiden atau masalah, di mana solusi permanen belum tersedia. Tujuan dari workaround adalah untuk memungkinkan pengguna
+            melanjutkan pekerjaan mereka meskipun akar masalah belum sepenuhnya diperbaiki.
+          </p>
+
+          <blockquote class="blockquote bg-light p-4 rounded mt-3">
+            <h5 class="fw-semibold">Contoh:</h5>
+            <p>Mengacu pada contoh sebelumnya, masalah utamanya adalah ketidakmampuan mencetak langsung dari Aplikasi X.</p>
+            <ul>
+              <li><strong>Masalah:</strong> Gagal mencetak dari aplikasi.</li>
+              <li><strong>Workaround:</strong> Mengekspor dokumen ke format PDF terlebih dahulu, lalu mencetak file PDF tersebut.</li>
+            </ul>
+            <p class="mb-0">
+              Dengan workaround ini, layanan pencetakan dapat dipulihkan untuk pengguna, dan dampak dari insiden tersebut dapat dikurangi, sambil tim teknis bekerja untuk menemukan solusi permanen (seperti menunggu update driver dari
+              vendor).
+            </p>
+          </blockquote>
+        </section>
+
+        <section id="hubungan-incident-problem" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-intersect text-primary"></i> Apa hubungan antara Incident Management dan Problem Management?</h3>
+          <p>Hubungan antara Incident Management dan Problem Management sangat erat dan saling melengkapi, namun keduanya memiliki fokus yang berbeda:</p>
+
+          <div class="row mt-3">
+            <div class="col-md-6 mb-3">
+              <div class="bg-light p-4 rounded h-100">
+                <h5 class="fw-bold">Incident Management (Fokus Kecepatan)</h5>
+                <p>Tujuannya adalah memulihkan layanan yang terganggu secepat mungkin, seringkali dengan menggunakan workaround. Fokusnya adalah pada <strong>gejala (symptom)</strong> untuk mengurangi dampak bisnis sesegera mungkin.</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="bg-light p-4 rounded h-100">
+                <h5 class="fw-bold">Problem Management (Fokus Penyebab)</h5>
+                <p>Tujuannya adalah menemukan dan menghilangkan <strong>akar penyebab (root cause)</strong> dari insiden untuk mencegahnya terjadi lagi. Fokusnya lebih pada investigasi mendalam dan solusi permanen.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-4">Secara sederhana, alurnya seperti ini:</p>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item">Sebuah insiden (gangguan layanan) terjadi.</li>
+            <li class="list-group-item">Tim <strong>Incident Management</strong> merespons, mencoba memulihkan layanan secepat mungkin, mungkin dengan menerapkan workaround yang sudah ada di KEDB.</li>
+            <li class="list-group-item">Jika insiden tersebut berulang atau dampaknya sangat besar, maka sebuah catatan masalah (problem) dibuat.</li>
+            <li class="list-group-item">Tim <strong>Problem Management</strong> mengambil alih, melakukan investigasi untuk menemukan akar penyebabnya.</li>
+            <li class="list-group-item">Setelah akar penyebab ditemukan, tim akan mencari solusi permanen dan mencatatnya sebagai <strong>known error</strong> beserta workaround-nya di KEDB.</li>
+            <li class="list-group-item">Setelah solusi permanen diimplementasikan, catatan masalah ditutup.</li>
+          </ol>
+        </section>
+
+        <hr class="my-5" />
+        <section id="lab-02" class="mb-5">
+          <h3 class="fw-bold mb-3"><i class="bi bi-people-fill text-primary"></i> Lab 02-Group Work</h3>
+          <p>
+            Pada akhir sesi pertemuan minggu ke-5, saya mencoba untuk memperbaiki hasil tranformasi yang telah saya lakukan di minggu ke-4, dengan cara menambahkan 30 baris data baru dan melengkapi kolom tabel yang masih kosong menggunakan
+            data
+            <i>dummy</i>. Selanjutnya dilakukan proses kategorisasi insiden yang dikelompokan ke dalam <i>repeated incident</i> dan <i>non-repeated incident</i>, lalu diambil 3 buah insiden yang memiliki frekuensi kemunculan tertinggi untuk
+            dianalisis lebih lanjut. Dari ketiga buah kandidat, kemudian dipilih satu insiden yang paling penting untuk diselesaikan, dalam dataset yang saya analisis, didapat bahwa insiden yang paling penting untuk diselesaikan ada pada
+            kategori <i>billing</i>. Dari insiden tersebut, kemudian dilakukan proses <i>Root Cause Analysis</i> menggunakan diagram Ishikawa (<i>fishbone</i>) untuk mengidentifikasi akar penyebabnya. Hasil analisis akar penyebab yang saya
+            peroleh adalah sebagai berikut.
+          </p>
+
+          <div class="text-center my-4">
+            <img src="assets/gambar-9.png" class="img-fluid rounded shadow-sm img-lebar-standar" alt="fishbone" style="max-width: 100%; height: auto" />
+          </div>
+
+          <p>
+            Kemudian dilanjutkan dengan pembuatan KEDB (<i>Known Error Database</i>) untuk mendokumentasikan secara resmi masalah-masalah yang sudah teridentifikasi beserta solusi sementaranya. Dengan begitu, diharapkan agar penanganan
+            insiden di masa depan menjadi lebih efisien dan terstruktur.
+          </p>
+
+          <p>Hasil analisis yang saya peroleh dapat diakses melalui link berikut ini.</p>
+
+          <div class="text-center mt-4">
+            <a href="https://docs.google.com/spreadsheets/d/1VPGiRStfvkFc8if3_R57PZkYvKNLMMuV2EizixoTOkI/edit?usp=sharing" class="btn btn-primary" target="_blank">
+              <i class="bi bi-file-earmark-spreadsheet-fill me-1"></i> Buka Hasil Analisis
+            </a>
+          </div>
+        </section>
+
+        <hr class="my-5" />
+        <section id="refleksi">
+          <h3 class="fw-bold mb-4">💡 Refleksi Pembelajaran</h3>
+          <blockquote class="blockquote bg-light p-4 rounded">
+            <p class="mb-0">
+              Pembelajaran minggu ini memberikan pemahaman yang komprehensif mengenai Manajemen Masalah (<i>Problem Management</i>), mulai dari tataran konseptual hingga proses implementasi praktis. Awalnya, dipelajari bahwa tujuan utama
+              dari proses ini bukan sekadar mengatasi insiden, melainkan mencegahnya terulang kembali dengan menemukan akar penyebabnya. Konsep ini diperdalam melalui pemahaman dua pendekatan utama, yaitu proaktif untuk mencegah masalah di
+              masa depan dan reaktif sebagai respons terhadap insiden yang sudah terjadi. Pembelajaran kemudian beralih ke aspek praktis, di mana sebuah dataset dianalisis untuk menyaring dan mengidentifikasi insiden berulang sebagai
+              kandidat masalah. Puncaknya adalah pelaksanaan Analisis Akar Penyebab (<i>Root Cause Analysis</i>) pada salah satu masalah terpilih, yaitu isu tagihan (<i>billing</i>), dengan menggunakan diagram Ishikawa (<i>fishbone</i>)
+              untuk memetakan berbagai kemungkinan penyebabnya secara terstruktur. Seluruh proses ini akhirnya menghasilkan sebuah output berupa entri dalam <i>Known Error Database</i> (KEDB), yang mendokumentasikan gejala, akar masalah,
+              solusi sementara, dan status perbaikan permanen, menunjukkan siklus penuh dari identifikasi hingga dokumentasi masalah.
+            </p>
+          </blockquote>
+        </section>
+      </article>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+      <div class="container">
+        <p class="mb-0 text-muted">&copy; 2025 | Dibuat oleh I Putu Febryan Khrisyantara</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

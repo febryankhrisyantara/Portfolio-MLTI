@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minggu 6: Persiapan ServiceNow untuk Aktivitas Penanganan Insiden</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Dashboard Perkuliahan</a>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <a href="index.html#rangkuman-materi" class="btn btn-outline-primary mb-4"> <i class="bi bi-arrow-left"></i> Kembali ke Daftar Rangkuman </a>
+
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold">Rangkuman Minggu 6</h1>
+        <h2 class="text-body-secondary">Simulasi Penanganan Insiden dengan ServiceNow</h2>
+        <p class="lead text-muted">Disusun oleh: I Putu Febryan Khrisyantara (5026231116)</p>
+      </header>
+      <hr class="mb-3" />
+
+      <section id="pendahuluan-praktikum" class="mb-5">
+        <p>
+          Pembahasan pada minggu ini adalah panduan untuk praktikum mandiri yang bertujuan menyimulasikan siklus hidup penanganan insiden (incident lifecycle) menggunakan platform ServiceNow. Tujuan utamanya adalah agar mahasiswa dapat
+          memahami proses penanganan insiden dari awal hingga akhir serta perbedaan hak akses antar peran pengguna. Prosesnya meliputi:
+        </p>
+
+        <ol class="list-group list-group-numbered mt-3">
+          <li class="list-group-item">Meminta Personal Developer Instance (PDI) sebagai lingkungan kerja pribadi.</li>
+          <li class="list-group-item">Membuat tiga jenis pengguna dengan peran berbeda: pelanggan (user), agen Service Desk (itil), dan manajer Service Desk (itil_admin).</li>
+          <li class="list-group-item">
+            Menjalankan simulasi:
+            <ol type="a" class="mt-2">
+              <li>Pelanggan membuat laporan insiden (misalnya, "Wi-Fi tidak berfungsi") melalui Service Portal.</li>
+              <li>Agen menerima, mengerjakan, dan menyelesaikan insiden tersebut.</li>
+              <li>Manajer memantau seluruh insiden, laporan, dan dasbor untuk mengawasi kinerja tim.</li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="langkah-praktikum" class="mb-5">
+        <h3 class="fw-bold mb-4"><i class="bi bi-list-ol text-primary"></i> Langkah-Langkah Praktikum</h3>
+        <p>Ikuti langkah-langkah berikut secara berurutan.</p>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Langkah 1: Siapkan "Bengkel" Kerjamu (Personal Developer Instance)</div>
+          <div class="card-body">
+            <ol>
+              <li>Buka situs <code>developer.servicenow.com</code>.</li>
+              <li>Daftar atau masuk ke akun developer-mu.</li>
+              <li>Pilih menu <code>Instance → Request Instance</code>.</li>
+              <li>Pilih rilis terbaru (disarankan <strong>Yokohama</strong>).</li>
+              <li>Tunggu beberapa saat hingga URL PDI-mu siap (contoh: <code>https://devXXXXX.service-now.com</code>).</li>
+              <li>Catat username dan password admin yang dikirimkan ke emailmu.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Langkah 2: Buat Tiga Pengguna</div>
+          <div class="card-body">
+            <ol>
+              <li>Masuk ke PDI-mu dengan akun <strong>admin</strong>.</li>
+              <li>Di menu navigasi kiri, ketik <code>users</code> dan pilih <strong>User Administration > Users</strong>.</li>
+              <li>Buat tiga pengguna sesuai detail berikut:</li>
+            </ol>
+            <div class="row mt-3">
+              <div class="col-md-4 mb-3">
+                <div class="card bg-light h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Pengguna 1 (Pelanggan)</h5>
+                    <ul class="list-unstyled">
+                      <li><strong>Name:</strong> User ITS</li>
+                      <li><strong>Username:</strong> <code>itsuser</code></li>
+                      <li><strong>Password:</strong> <code>Yeswecan!7</code></li>
+                      <li><strong>Role:</strong> user</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card bg-light h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Pengguna 2 (Agen)</h5>
+                    <ul class="list-unstyled">
+                      <li><strong>Name:</strong> Agent ITS</li>
+                      <li><strong>Username:</strong> <code>itsagent</code></li>
+                      <li><strong>Password:</strong> <code>Yeswecan!7</code></li>
+                      <li><strong>Role:</strong> itil</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <div class="card bg-light h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">Pengguna 3 (Manajer)</h5>
+                    <ul class="list-unstyled">
+                      <li><strong>Name:</strong> Manager ITS</li>
+                      <li><strong>Username:</strong> <code>itsmanager</code></li>
+                      <li><strong>Password:</strong> <code>Yeswecan!7</code></li>
+                      <li><strong>Role:</strong> itil_admin</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>Pastikan status ketiganya <strong>Active</strong>.</p>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Langkah 3: Simulasi sebagai Pelanggan (Membuat Laporan)</div>
+          <div class="card-body">
+            <ol>
+              <li>Buka Service Portal dengan menambahkan <code>/sp</code> di akhir URL PDI-mu (misal: <code>https://devXXXXX.service-now.com/sp</code>).</li>
+              <li>Masuk sebagai <code>itsuser</code>.</li>
+              <li>Klik <strong>Submit Incident</strong>.</li>
+              <li>
+                Isi formulir:
+                <ul>
+                  <li><strong>Short description:</strong> <code>Wi-Fi not working</code></li>
+                  <li><strong>Description:</strong> <code>Cannot connect to Wi-Fi in the lab.</code></li>
+                </ul>
+              </li>
+              <li>Klik <strong>Submit</strong>. Cek di menu <strong>My Incidents</strong>, statusnya harus <strong>New</strong>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Langkah 4: Simulasi sebagai Agen (Menyelesaikan Laporan)</div>
+          <div class="card-body">
+            <ol>
+              <li>Buka <strong>tab penyamaran (incognito)</strong> baru di browser-mu.</li>
+              <li>Masuk ke PDI (URL biasa, bukan <code>/sp</code>) sebagai <code>itsagent</code>.</li>
+              <li>Di menu navigasi, cari <code>incident</code> lalu pilih <strong>Incidents > Open</strong>.</li>
+              <li>Temukan dan buka insiden "Wi-Fi not working" yang dibuat oleh <code>itsuser</code>.</li>
+              <li>
+                Lakukan tindakan berikut:
+                <ul>
+                  <li><strong>Assign to yourself</strong> (Tugaskan ke dirimu sendiri).</li>
+                  <li>Ubah <strong>State</strong> menjadi <strong>In Progress</strong>.</li>
+                  <li>Tambahkan catatan kerja (work notes).</li>
+                  <li>Setelah "selesai", ubah <strong>State</strong> menjadi <strong>Resolved</strong> lalu <strong>Save</strong>.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Langkah 5: Simulasi sebagai Manajer (Memantau Kinerja)</div>
+          <div class="card-body">
+            <p>Masuk ke PDI sebagai <code>itsmanager</code>.</p>
+            <p>Jelajahi beberapa menu ini untuk melihat gambaran besar:</p>
+            <ul>
+              <li><strong>Incidents > All:</strong> Lihat semua tiket yang ada di sistem.</li>
+              <li><strong>Reports > View / Run:</strong> Jalankan laporan terkait insiden.</li>
+              <li><strong>Dashboards:</strong> Pantau beban kerja dan metrik penting lainnya.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+      <section id="hasil-akhir">
+        <h3 class="fw-bold mb-3"><i class="bi bi-image-fill text-primary"></i> Hasil Akhir (Deliverables)</h3>
+        <p>Untuk hasil akhir dari setiap tahapan, saya menyertakan hasil tangkapan layar dari beberapa aktivitas di bawah ini.</p>
+
+        <div class="row mt-4">
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img src="assets/gambar-10.png" class="card-img-top" alt="Portal ITS User - Insiden Dibuat" />
+              <div class="card-body">
+                <p class="card-text">Tampilan portal ITS User yang menunjukkan insiden berhasil dibuat.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img src="assets/gambar-11.png" class="card-img-top" alt="Tampilan ITS Agent - In Progress" />
+              <div class="card-body">
+                <p class="card-text">Tampilan ITS Agent saat sedang mengerjakan insiden (terlihat status In Progress dan ditugaskan ke agen).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img src="assets/gambar-12.png" class="card-img-top" alt="Portal ITS User - Insiden Resolved" />
+              <div class="card-body">
+                <p class="card-text">Tampilan portal ITS User yang menunjukkan status insiden sudah Resolved.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <img src="assets/gambar-13.png" class="card-img-top" alt="Dasbor ITS Manager" />
+              <div class="card-body">
+                <p class="card-text">Tampilan dasbor atau laporan dari akun ITS Manager.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+      <section id="refleksi">
+        <h3 class="fw-bold mb-4">💡 Refleksi Pembelajaran</h3>
+        <blockquote class="blockquote bg-light p-4 rounded">
+          <p class="mb-0">
+            Praktikum mandiri minggu ke-6 ini memberikan pengalaman langsung yang sangat berharga dengan menyimulasikan siklus hidup penanganan insiden di ServiceNow dari tiga perspektif yang berbeda. Melalui peran sebagai pengguna
+            (<code>itsuser</code>), agen (<code>itsagent</code>), dan manajer (<code>itsmanager</code>), saya secara konkret memahami bagaimana setiap peran memiliki tampilan, hak akses, dan tanggung jawab yang unik—mulai dari pelaporan
+            masalah yang sederhana, penanganan teknis oleh agen, hingga pemantauan kinerja oleh manajer. Pengalaman ini secara efektif menunjukkan betapa pentingnya pembagian peran dalam menciptakan alur kerja manajemen layanan TI yang
+            terstruktur dan efisien, mengubah konsep teoretis menjadi pemahaman praktis yang nyata.
+          </p>
+        </blockquote>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+      <div class="container">
+        <p class="mb-0 text-muted">&copy; 2025 | Dibuat oleh I Putu Febryan Khrisyantara</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minggu 7: Simulasi ServiceNow dengan Menggunakan Informasi dari Dataset Sebelumnya</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Dashboard Perkuliahan</a>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <a href="index.html#rangkuman-materi" class="btn btn-outline-primary mb-4"> <i class="bi bi-arrow-left"></i> Kembali ke Daftar Rangkuman </a>
+
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold">Rangkuman Minggu 7</h1>
+        <h2 class="text-body-secondary">Simulasi Penggunaan Service Now dengan Menggunakan Informasi dari Dataset</h2>
+        <p class="lead text-muted">Disusun oleh: I Putu Febryan Khrisyantara (5026231116)</p>
+      </header>
+      <hr class="mb-3" />
+
+      <section id="pendahuluan-praktikum" class="mb-5">
+        <p>
+          Di mata kuliah Manajemen Layanan TI, kami tidak hanya belajar teori. Kami diberi kesempatan untuk benar-benar merasakan bagaimana sebuah insiden IT ditangani secara profesional dari awal hingga akhir. Saya ingin berbagi pengalaman
+          kelompok kami dalam sebuah proyek simulasi yang sangat menarik.
+        </p>
+
+        <p>
+          Tugas kami adalah mengambil data insiden dari dunia nyata dan mengelolanya menggunakan platform ServiceNow dengan mengikuti alur kerja ITIL. Ini adalah perjalanan kami dalam mengubah keluhan menjadi sebuah tiket yang tertangani
+          dengan rapi. Mari saya ajak Anda melihat langkah-langkah yang kami lakukan!
+        </p>
+      </section>
+
+      <section id="langkah-1" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-filter-circle-fill text-primary"></i> Langkah #1: Memilih Skenario Insiden dari Dunia Nyata</h3>
+        <div class="bg-light p-4 rounded">
+          <p>
+            Semuanya dimulai dari data. Tim kami tidak asal membuat masalah, lho. Kami mengambil 15 catatan insiden nyata dari dataset Kaggle yang pernah saya bahas di pertemuan sebelumnya. Agar relevan, data ini disaring dan dikelompokkan
+            menjadi tiga kategori utama sesuai standar ITIL:
+          </p>
+          <ul>
+            <li>5 insiden terkait <strong>Jaringan (Network)</strong></li>
+            <li>5 insiden terkait <strong>Perangkat Keras (Hardware)</strong></li>
+            <li>5 insiden terkait <strong>Perangkat Lunak/Aplikasi (Software/Application)</strong></li>
+          </ul>
+          <p class="mb-0">
+            Setiap insiden kemudian didokumentasikan secara rinci dalam sebuah spreadsheet, lengkap dengan deskripsi singkat, detail masalah, kategori, tingkat urgensi, dampak, hingga usulan tim mana yang harus menanganinya. Dengan
+            menggunakan Google Sheet, semua anggota tim bisa mengakses dan bekerja sama dengan transparan.
+          </p>
+        </div>
+      </section>
+
+      <section id="langkah-2" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-person-workspace text-primary"></i> Langkah #2: Membangun 'Arena' Simulasi di ServiceNow</h3>
+
+        <div class="bg-light p-4 rounded mb-4">
+          <p>
+            Setelah skenario siap, saatnya membangun "arena" digitalnya. Ketua kelompok (saya sendiri) bertanggung jawab menyiapkan Personal Developer Instance (PDI) di ServiceNow. Di dalam PDI ini, saya membentuk tiga tim spesialis yang
+            akan menjadi garda terdepan penanganan eskalasi masalah (dikenal sebagai Tier 2), yaitu:
+          </p>
+          <ul>
+            <li><strong>Network Support Team</strong></li>
+            <li><strong>Hardware Support Team</strong></li>
+            <li><strong>Software Support Team</strong></li>
+          </ul>
+          <p>Tak lupa, saya juga menciptakan "para aktor" dalam simulasi ini dengan membuat lima akun pengguna dengan peran yang berbeda-beda:</p>
+          <ul>
+            <li><code>its_user</code>: Sang Pelanggan yang melaporkan masalah.</li>
+            <li><code>its_worker</code>: Agen Service Desk (Tier 1), pahlawan di lini pertama.</li>
+            <li><code>its_net</code>: Spesialis Jaringan.</li>
+            <li><code>its_hw</code>: Spesialis Perangkat Keras.</li>
+            <li><code>its_sw</code>: Spesialis Perangkat Lunak/Aplikasi.</li>
+          </ul>
+        </div>
+
+        <div>
+          <p>Untuk memperjelas alur dari proses yang terjadi untuk setiap role, berikut saya lampirkan BPMN yang menggambarkan proses yang terjadi.</p>
+
+          <div class="text-center my-4">
+            <img src="assets/gambar-14.jpg" class="img-fluid rounded shadow-sm img-lebar-standar" alt="BPMN" style="max-width: 100%; height: auto" />
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Babak Pertama: "Help! Something is Broken!" - Peran Pelanggan</div>
+          <div class="card-body">
+            <p class="card-text">
+              Simulasi pun dimulai! Aktor pertama yang beraksi adalah <code>its_user</code>. Melalui portal layanan (Service Portal), pengguna ini secara manual membuat 15 tiket insiden berdasarkan data yang sudah disiapkan tadi. Setiap
+              tiket diisi dengan ringkasan masalah, detail konteks, dan kategori yang sesuai. Begitu tombol "Submit" diklik, semua 15 tiket tersebut langsung muncul di halaman "My Incidents" dengan status "New". Proses pelaporan dari sisi
+              pengguna berhasil disimulasikan!
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Babak Kedua: Triase Dimulai - Aksi Agen Service Desk (Tier 1)</div>
+          <div class="card-body">
+            <p class="card-text">
+              Tiket sudah masuk, kini giliran <code>its_worker</code> sebagai Agen Service Desk Tier 1 yang unjuk gigi. Tugasnya adalah melakukan triase atau pemilahan awal. Agen ini meninjau semua 15 tiket, memastikan kategorinya sudah
+              benar, lalu menugaskannya ke tim spesialis yang tepat. Status tiket pun diubah dari "New" menjadi "In Progress". Sebagai jejak digital, sebuah catatan kerja ditambahkan yang berbunyi, "Ticket triaged, assigned to specialist".
+              Terakhir, tiket tersebut secara spesifik dialihkan ke akun spesialis yang relevan (<code>its_net</code>, <code>its_hw</code>, atau <code>its_sw</code>) untuk penanganan lebih lanjut.
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Babak Ketiga: Para Ahli Turun Tangan (Tier 2)</div>
+          <div class="card-body">
+            <p class="card-text">
+              Kini, para spesialis mengambil alih. Setiap ahli masuk ke akun mereka masing-masing untuk menangani tiket sesuai bidangnya. Spesialis Jaringan memperbaiki masalah konektivitas, Spesialis Perangkat Keras menangani kerusakan
+              perangkat, dan Spesialis Perangkat Lunak mengatasi error pada aplikasi. Selama proses perbaikan, mereka rajin mencatat semua langkah yang diambil di dalam work notes. Setelah masalah teratasi, status tiket pun diubah menjadi
+              "Resolved".
+            </p>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Babak Final: "Thank You!" - Konfirmasi dari Pelanggan</div>
+          <div class="card-body">
+            <p class="card-text">
+              Siklus ini belum lengkap tanpa konfirmasi dari si pelapor. Akun <code>its_user</code> kembali masuk ke Service Portal untuk mengecek status tiketnya. Pengguna ini memverifikasi bahwa semua laporannya kini sudah berstatus
+              "Resolved". Sebagai sentuhan akhir yang manis, ditambahkan komentar "Thank you" di beberapa tiket untuk menyimulasikan umpan balik dari pelanggan. Inilah momen yang menandakan seluruh siklus hidup insiden—dari pembuatan hingga
+              penutupan—telah selesai dengan sukses.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+      <section id="pembelajaran">
+        <h3 class="fw-bold mb-3"><i class="bi bi-lightbulb-fill text-primary"></i> Apa yang Bisa Kita Pelajari?</h3>
+        <blockquote class="blockquote bg-light p-4 rounded">
+          <p>
+            Proyek simulasi ini bukan sekadar tugas kuliah biasa. Dari sini, kita bisa melihat betapa pentingnya sebuah alur kerja yang terstruktur dalam manajemen layanan IT. Saya dan tim menyimpulkan bahwa pengalaman ini memberikan kami
+            pemahaman mendalam tentang bagaimana konsep ITIL diterapkan di dunia nyata.
+          </p>
+          <p class="mb-0">
+            Kami belajar bagaimana peran yang berbeda, alur kerja yang jelas, dan kategorisasi yang tepat saling bekerja sama untuk memastikan setiap tiket ditangani secara efisien. Pada akhirnya, semua ini bertujuan untuk satu hal: menjaga
+            kualitas layanan dan memastikan kepuasan pengguna.
+          </p>
+        </blockquote>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+      <div class="container">
+        <p class="mb-0 text-muted">&copy; 2025 | Dibuat oleh I Putu Febryan Khrisyantara</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

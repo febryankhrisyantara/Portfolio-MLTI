@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minggu 10: Penerapan Praktik Change, Release, dan Configuration Management dalam ITIL v4: Teori dan Studi Kasus</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Dashboard Perkuliahan</a>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <a href="index.html#rangkuman-materi" class="btn btn-outline-primary mb-4"> <i class="bi bi-arrow-left"></i> Kembali ke Daftar Rangkuman </a>
+
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold">Rangkuman Minggu 10</h1>
+        <h2 class="text-body-secondary">Penerapan Praktik Change, Release, dan Configuration Management dalam ITIL v4: Teori dan Studi Kasus</h2>
+        <p class="lead text-muted">Disusun oleh: I Putu Febryan Khrisyantara (5026231116)</p>
+      </header>
+      <hr class="mb-3" />
+
+      <section id="pendahuluan-praktikum" class="mb-5">
+        <p>
+          Untuk menjamin stabilitas, kepatuhan, dan keberhasilan peluncuran layanan TI dalam sebuah organisasi, maka kali ini saya akan mengulas secara mendalam tiga praktik esensial ITIL v4. Pembahasan akan mencakup Change Enablement,
+          Release & Deployment Management, serta IT Asset & Configuration Management, yang dilengkapi dengan contoh implementasi nyata.
+        </p>
+      </section>
+
+      <section id="change-management" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-shuffle text-primary"></i> Change Management (Change Enablement)</h3>
+        <div class="bg-light p-4 rounded">
+          <p>Praktik ini berfokus pada optimalisasi keberhasilan perubahan layanan sekaligus meminimalkan risiko dan dampak negatif.</p>
+          <hr />
+          <p><strong>Tujuan:</strong> Memastikan risiko telah dinilai, otorisasi telah diberikan, dan jadwal perubahan dikelola secara efektif.</p>
+
+          <p class="mt-3"><strong>Tiga Tipe Perubahan:</strong></p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-transparent"><strong>Standard Changes:</strong> Perubahan berisiko rendah, berulang, dan telah disahkan sebelumnya (pre-authorized).</li>
+            <li class="list-group-item bg-transparent"><strong>Normal Changes:</strong> Perubahan yang memerlukan penilaian, otorisasi, dan penjadwalan penuh melalui proses standar.</li>
+            <li class="list-group-item bg-transparent"><strong>Emergency Changes:</strong> Perubahan yang harus segera diimplementasikan, biasanya untuk mengatasi insiden kritis.</li>
+          </ul>
+
+          <p class="mt-3">
+            <strong>Change Advisory Board (CAB):</strong> Didefinisikan sebagai kelompok penasihat yang terdiri dari perwakilan berbagai bidang (TI, Bisnis, Keamanan). Tugas utamanya adalah meninjau Request for Change (RFC) , menilai risiko
+            dan dampak , serta memberikan rekomendasi kepada Otoritas Perubahan (Change Authority).
+          </p>
+        </div>
+      </section>
+
+      <section id="release-deployment" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-box-arrow-up text-primary"></i> Release & Deployment Management</h3>
+        <div class="bg-light p-4 rounded">
+          <p>Praktik ini mengelola ketersediaan dan implementasi layanan ke lingkungan produksi.</p>
+          <hr />
+          <p><strong>Perbedaan Definisi:</strong></p>
+          <ul>
+            <li><strong>Release Management:</strong> Berfokus pada penyediaan produk dan layanan baru/yang diubah agar tersedia untuk digunakan.</li>
+            <li><strong>Deployment Management:</strong> Berfokus pada proses teknis memindahkan komponen (hardware/software) ke lingkungan live.</li>
+          </ul>
+
+          <p><strong>Hubungan dengan Change:</strong> Setiap rilis dan deployment harus dianggap sebagai Perubahan (Change) dan seringkali dipicu oleh RFC yang disetujui.</p>
+
+          <p><strong>Aktivitas Kunci:</strong> Mencakup perencanaan rilis , build and test , proses deployment (cth: Big Bang, Phased) , verifikasi, dan transfer pengetahuan ke tim Service Desk.</p>
+        </div>
+      </section>
+
+      <section id="itam-config" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-pc-display-horizontal text-primary"></i> IT Asset Management (ITAM) & Configuration Management</h3>
+        <div class="bg-light p-4 rounded">
+          <p>Dua praktik ini berfokus pada pengelolaan komponen layanan, namun dengan fokus yang berbeda.</p>
+          <hr />
+          <p><strong>Perbandingan Fokus:</strong></p>
+          <ul>
+            <li><strong>ITAM:</strong> Berfokus pada aspek finansial, fisik, dan siklus hidup aset. Tujuannya adalah memaksimalkan nilai, mengendalikan biaya, dan mengelola kepatuhan lisensi.</li>
+            <li><strong>Configuration Management:</strong> Berfokus pada aspek teknis dan hubungan antar komponen. Tujuannya adalah menyediakan "cetak biru" layanan untuk analisis dampak.</li>
+          </ul>
+
+          <p><strong>Istilah Kunci:</strong></p>
+          <ul>
+            <li><strong>CI (Configuration Item):</strong> Komponen apa pun yang perlu dikelola untuk menyediakan layanan (cth: server, aplikasi, database).</li>
+            <li><strong>CMDB (Configuration Management Database):</strong> Database yang menyimpan catatan CI serta memetakan hubungan dan dependensi di antara mereka.</li>
+            <li><strong>CMS (Configuration Management System):</strong> Sistem yang lebih luas yang dapat terdiri dari satu atau lebih CMDB dan terintegrasi dengan alat lain (seperti discovery tools).</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+      <section id="studi-kasus-proyek" class="mb-5">
+        <h3 class="fw-bold mb-3"><i class="bi bi-journal-check text-primary"></i> Analisis Studi Kasus Proyek Grup</h3>
+        <p>Bagian ini mengaplikasikan konsep teoretis di atas dalam skenario proyek fiktif di lingkungan kampus.</p>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Part 1: Implementasi Change Management</div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><strong>Skenario:</strong> Mengajukan Request for Change (RFC) dengan ID <code>CHG-2025-WIFI-01</code> untuk "Campus Wi-Fi Authentication Upgrade".</li>
+              <li><strong>Deskripsi Perubahan:</strong> Melakukan upgrade sistem otentikasi Wi-Fi dari sistem kata sandi lokal ke SSO (Azure AD) terpusat.</li>
+              <li><strong>Justifikasi:</strong> Sistem saat ini tidak stabil dan implementasi perubahan ini merupakan prasyarat kritis untuk proyek strategis masa depan (OCRP).</li>
+              <li><strong>Hasil:</strong> Perubahan disetujui (Approved) oleh Change Manager/CAB.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Part 2: Implementasi Release Management</div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><strong>Skenario:</strong> Merencanakan rilis (Release Plan) untuk "Online Course Registration Portal (OCRP)" dengan ID <code>REL-2025-01</code>.</li>
+              <li><strong>Deskripsi Rilis:</strong> Men-deploy portal web baru untuk registrasi mata kuliah mahasiswa yang terintegrasi dengan otentikasi SSO Azure AD.</li>
+              <li><strong>Ketergantungan (Dependency):</strong> Rilis ini secara eksplisit bergantung pada penyelesaian <code>RFC-2025-WIFI-01</code> (Wi-Fi Authentication Upgrade).</li>
+              <li><strong>Jadwal:</strong> Rencana implementasi dibagi menjadi empat fase: Development, Testing, Rollout (Pilot), dan Full Deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-header fw-bold">Part 3: Implementasi Configuration Management</div>
+          <div class="card-body">
+            <p><strong>Skenario:</strong> Melakukan pembaruan pada Configuration Management Database (CMDB) untuk mencerminkan status "live" setelah kedua proyek di atas selesai.</p>
+            <p class="mb-2"><strong>Logika Pembaruan:</strong></p>
+            <ul>
+              <li>
+                <strong><code>CI-2025-AUTH-01</code> (Authentication Gateway):</strong> Diperbarui. Versi diubah menjadi v2.0 (SSO Enabled) dan ditambahkan relasi baru: "Supports OCRP (<code>CI-2025-REG-01</code>)".
+              </li>
+              <li>
+                <strong><code>CI-2025-APP-01</code> (Application Server):</strong> Diperbarui. Deskripsi diubah untuk mencerminkan bahwa server kini "Hosts OCRP" , dan ditambahkan relasi: "Hosts OCRP (<code>CI-2025-REG-01</code>)" serta
+                "Uses Authentication Gateway (<code>CI-2025-AUTH-01</code>)".
+              </li>
+              <li>
+                <strong><code>CI-2025-REG-01</code> (OCRP):</strong> Dibuat sebagai CI baru. Relasi dependensinya langsung dicatat: "Runs on Application Server (<code>CI-2025-APP-01</code>)" dan "Uses Authentication Gateway
+                (<code>CI-2025-AUTH-01</code>)".
+              </li>
+            </ul>
+            <hr />
+            <blockquote class="blockquote bg-light p-3 rounded mb-0">
+              <p class="mb-0">
+                <strong>Tujuan Akhir:</strong> Dengan pembaruan ini, CMDB kini menjadi sumber data akurat yang memetakan dependensi layanan. Jika OCRP mengalami masalah, Service Desk dapat langsung melihat dependensinya (Server Aplikasi dan
+                Gateway Otentikasi) untuk mempercepat troubleshooting.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+      <section id="pembelajaran">
+        <h3 class="fw-bold mb-3"><i class="bi bi-lightbulb-fill text-primary"></i> Apa yang Bisa Kita Pelajari?</h3>
+        <blockquote class="blockquote bg-light p-4 rounded">
+          <p>
+            Praktik Change, Release, dan Configuration Management bukanlah tiga pilar yang berdiri sendiri, melainkan sebuah alur kerja terpadu yang esensial bagi stabilitas dan evolusi layanan TI. Studi kasus proyek menggambarkan dengan
+            jelas bagaimana sebuah Request for Change (RFC) yang terkendali untuk upgrade infrastruktur menjadi fondasi dan prasyarat teknis yang memungkinkan Release layanan baru yang dihadapi pengguna (OCRP). Puncak dari alur kerja ini
+            adalah pembaruan Configuration Management Database (CMDB) , yang bukan sekadar tugas administratif, melainkan tindakan vital untuk menciptakan "peta" layanan yang akurat. Nilai sejati dari CMDB terbukti ada pada pemetaan
+            hubungan dan dependensi antar CI , di mana peta inilah yang pada akhirnya menjadi "sumber kebenaran tunggal" untuk mempercepat analisis dampak perubahan dan penyelesaian masalah operasional di masa depan.
+          </p>
+        </blockquote>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 border-top bg-white">
+      <div class="container">
+        <p class="mb-0 text-muted">&copy; 2025 | Dibuat oleh I Putu Febryan Khrisyantara</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
